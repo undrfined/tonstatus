@@ -1,23 +1,18 @@
-import React, { FC } from "react";
-import { Link, Route, Routes } from "react-router-dom";
-import CurrencyInput from "./components/CurrencyInput/CurrencyInput";
+import { FC } from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
+import classNames from "classnames";
+
+import Home from "./components/routes/Home";
+
 import styles from "./App.module.scss";
 
 const App: FC = () => {
   return (
-    <div className="App">
-      Global
+    <div className={classNames("App", styles.root)}>
+      <div className={styles.header}>TeamV TON Status</div>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <div className={styles.white}>
-              Base route
-              <Link to="/about">Other route</Link>
-            </div>
-          }
-        />
-        <Route path="about" element={<CurrencyInput />} />
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
   );

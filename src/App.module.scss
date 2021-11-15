@@ -1,3 +1,13 @@
-.white {
-    color: white;
+.root {
+    background-color: var(--mainBackgroundColor);
+    color: var(--defaultTextColor);
+}
+
+.header {
+    background-color: var(--accentColor);
+    color: var(--alternativeTextColor);
+    text-align: center;
+    padding: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
 }
