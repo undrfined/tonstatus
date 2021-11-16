@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import Skeleton from './Skeketon';
+import Skeleton from "./Skeketon";
 
 interface ServicePerformanceV1 {
   service: string;
@@ -14,21 +14,20 @@ interface ServicePerformanceV1 {
 // todo...
 
 export default function WebserviceStatusCard({
-                                               performance,
-                                             }: {
+  performance,
+}: {
+  // eslint-disable-next-line react/require-default-props
   performance?: ServicePerformanceV1;
 }) {
   if (!performance) {
     return (
       <div className="webservice-status-card Loading">
-        <Skeleton/>
+        <Skeleton />
       </div>
-    )
+    );
   }
 
   const { service, up, uptime, avgResponseTime } = performance;
-
-  const isUp = uptime < 100;
 
   return (
     <div className="webservice-status-card">
@@ -56,10 +55,10 @@ export default function WebserviceStatusCard({
       <div
         className={classNames(
           "webservice-status-card-status",
-          isUp ? "Up" : "Down"
+          up ? "Up" : "Down"
         )}
       >
-        <span className="material-icons">{isUp ? 'thumb_up' : 'thumb_down'}</span>
+        <span className="material-icons">{up ? "thumb_up" : "thumb_down"}</span>
       </div>
     </div>
   );

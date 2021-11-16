@@ -6,21 +6,21 @@ import ReactTooltip from "react-tooltip";
 import Home from "./components/routes/Home";
 
 import styles from "./App.module.scss";
-import Header from './components/Header';
+import Header from "./components/Header";
 
 const App: FC = () => {
   return (
     <div className={classNames("app", styles.root)}>
-      <Header/>
+      <Header />
 
       <div className={styles.page}>
         <Routes>
-          <Route path="/" element={<Home/>}/>
-          <Route path="*" element={<Navigate to="/"/>}/>
+          <Route path="/" element={<Home />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </div>
 
-      <ReactTooltip backgroundColor="var(--successColor)"/>
+      <ReactTooltip backgroundColor="var(--successColor)" />
     </div>
   );
 };

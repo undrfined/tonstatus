@@ -35,10 +35,6 @@
       }
     ],
     "@typescript-eslint/camelcase": "off",
-    "max-len": [
-      "error",
-      120
-    ],
     "array-bracket-newline": [
       2,
       "consistent"
@@ -54,6 +50,7 @@
     "jsx-a11y/no-static-element-interactions": "off",
     "jsx-a11y/label-has-associated-control": "off",
     "jsx-a11y/anchor-is-valid": "off",
+    "max-len": "off",
     "jsx-a11y/no-noninteractive-element-to-interactive-role": "off"
   }
 }
