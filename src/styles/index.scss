@@ -1,5 +1,6 @@
 @import './reset.css';
 @import 'variables';
+@import 'mixins';
 
 body {
   margin: 0;
@@ -19,17 +20,22 @@ body {
 
 .webservice-status-card {
   position: relative;
-  height: 180px;
+  height: 12rem;
   width: 100%;
 
   display: grid;
-  grid-template-columns: 1fr .4fr;
+  grid-template-columns: 1fr minmax(200px, 0.4fr);
 
   border-radius: 12px;
 
   background-color: var(--mainBackgroundColor);
 
   animation: 250ms opacity linear;
+
+  @include mobile {
+    grid-template-columns: 1fr 0.2fr;
+    height: 8rem;
+  }
 
   &.Loading {
     grid-template-columns: 1fr;
@@ -53,9 +59,9 @@ body {
     }
 
     .webservice-status-card-measurements {
-      margin-top: auto;
-
       display: flex;
+
+      margin-top: auto;
 
       .webservice-status-card-measurement {
         margin-right: 1rem;
@@ -97,6 +103,10 @@ body {
       position: absolute;
 
       font-size: 5rem;
+
+      @include mobile {
+        display: none;
+      }
     }
   }
 }

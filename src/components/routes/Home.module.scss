@@ -1,6 +1,12 @@
+@import "src/styles/mixins";
+
 .home {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
   padding: 1rem;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
 }

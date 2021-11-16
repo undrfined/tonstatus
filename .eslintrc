@@ -51,6 +51,8 @@
     "jsx-a11y/label-has-associated-control": "off",
     "jsx-a11y/anchor-is-valid": "off",
     "max-len": "off",
-    "jsx-a11y/no-noninteractive-element-to-interactive-role": "off"
+    "jsx-a11y/no-noninteractive-element-to-interactive-role": "off",
+    "react/button-has-type": "off",
+    "react/require-default-props": "off"
   }
 }
