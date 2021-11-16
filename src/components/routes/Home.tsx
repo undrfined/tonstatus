@@ -1,23 +1,27 @@
-import { FC, useState } from "react";
-import { AverageInfo } from "../../types/types";
-import FlipCard from "../FlipCard/FlipCard";
+import { FC } from "react";
 
 import styles from "./Home.module.scss";
+import WebserviceStatusCard from "../WebserviceStatusCard";
+import useWebservices from '../../reducers/useWebservices';
 
 const Home: FC = () => {
-  const [someInfo, setSomeInfo] = useState<AverageInfo>({
-    current: 10,
-    dayAverage: 9.8,
-    monthAverage: 9.6,
-  });
+  const webservices = useWebservices();
 
   return (
     <div className={styles.home}>
-      <FlipCard title="Foo" averageInfo={someInfo} />
-      <FlipCard title="Bar" averageInfo={someInfo} />
-      <FlipCard title="Money" averageInfo={someInfo} />
-      <FlipCard title="Desperation" averageInfo={someInfo} />
-      <FlipCard title="Time" averageInfo={someInfo} />
+      {
+        webservices.length ?
+          webservices.map((webservice) => (
+            <WebserviceStatusCard performance={webservice}/>
+          )) :
+          <>
+            <WebserviceStatusCard/>
+            <WebserviceStatusCard/>
+            <WebserviceStatusCard/>
+            <WebserviceStatusCard/>
+            <WebserviceStatusCard/>
+          </>
+      }
     </div>
   );
 };

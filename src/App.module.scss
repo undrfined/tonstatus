@@ -9,7 +9,7 @@
 
 @keyframes logo-animation {
   0% {
-    box-shadow: 0 0 0 0 #00c853;
+    box-shadow: 0 0 0 0 currentColor;
   }
   100% {
     box-shadow: 0 0 10rem rgba(white, 0);
@@ -25,12 +25,20 @@
 
   border-radius: 50%;
 
+  color: var(--successColor);
+
   animation: logo-animation 2s forwards infinite;
   animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+
+  transition: all 250ms ease-in-out;
 
   &:hover {
     animation-duration: 1s;
   }
+}
+
+.logoLoading {
+  color: var(--accentColor);
 }
 
 .header {
@@ -39,14 +47,22 @@
   padding: 1rem 1rem 5rem 1rem;
   font-size: 2rem;
   font-weight: bold;
+
+  .headerStatus {
+    cursor: default;
+    color: var(--successColor);
+
+    transition: color 250ms ease-in-out;
+
+    &:hover {
+      border-bottom: 5px solid currentColor;
+    }
+  }
 }
 
-.headerStatus {
-  cursor: default;
-  color: #00c853;
-
-  &:hover {
-    border-bottom: 5px solid currentColor;
+.headerLoading {
+  .headerStatus {
+    color: var(--accentColor);
   }
 }
 
