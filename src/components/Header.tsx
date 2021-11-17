@@ -9,7 +9,12 @@ export default function Header() {
 
   return (
     <>
-      <div className={styles.logo}>
+      <div
+        className={classNames(
+          styles.logo,
+          isLoading ? styles.logoLoading : undefined
+        )}
+      >
         <svg
           className={classNames(isLoading ? styles.logoLoading : undefined)}
           width="32"

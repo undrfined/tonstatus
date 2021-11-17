@@ -18,6 +18,36 @@ body {
   }
 }
 
+.dark-mode-toggle {
+  position: absolute;
+
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  background-color: var(--mainBackgroundColor);
+  color: var(--secondaryTextColor);
+
+  border: none;
+  outline: none;
+
+  right: 1rem;
+  top: 1rem;
+
+  border-radius: 50%;
+
+  transition: all 250ms ease-in-out;
+
+  &:hover {
+    color: var(--mainBackgroundColor);
+    background-color: var(--defaultTextColor);
+  }
+}
+
 .webservice-status-card {
   position: relative;
   height: 12rem;
@@ -44,6 +74,8 @@ body {
   }
 
   .webservice-status-card-details {
+    position: relative;
+
     padding: 1rem;
 
     border-radius: 12px 0 0 12px;
@@ -53,12 +85,66 @@ body {
     display: flex;
     flex-direction: column;
 
+    background-color: transparent;
+
+    .webservice-status-card-bar {
+      position: absolute;
+
+      z-index: 0;
+
+      left: 0;
+      bottom: 0;
+
+      max-width: 100%;
+      max-height: 100%;
+
+      @include mobile {
+        display: none;
+      }
+    }
+
+    .webservice-status-card-details-button {
+      position: absolute;
+
+      z-index: 2;
+
+      top: 1.2rem;
+      right: 1rem;
+
+      font-weight: 500;
+
+      opacity: 0;
+
+      background-color: transparent;
+      border: none;
+      outline: none;
+
+      cursor: pointer;
+
+      transition: opacity 250ms ease-in-out;
+
+      color: var(--secondaryTextColor);
+
+      &:hover {
+        text-decoration: underline;
+        color: var(--defaultTextColor);
+      }
+    }
+
+    &:hover {
+      .webservice-status-card-details-button {
+        opacity: 1;
+      }
+    }
+
     .webservice-status-card-name {
+      z-index: 1;
       font-size: 1.3rem;
       font-weight: bold;
     }
 
     .webservice-status-card-measurements {
+      z-index: 1;
       display: flex;
 
       margin-top: auto;
@@ -91,7 +177,7 @@ body {
 
     border-radius: 0 12px 12px 0;
     background-color: var(--successColor);
-    color: var(--alternativeTextColor);
+    color: var(--mainBackgroundColor);
 
     transition: all 250ms ease-in-out;
 
@@ -143,5 +229,11 @@ body {
     width: 150px;
     background: linear-gradient(to right, currentColor 0%, white 50%, currentColor 100%);
     animation: skeleton 2s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+  }
+}
+
+@include mobile {
+  html {
+    font-size: 14px;
   }
 }

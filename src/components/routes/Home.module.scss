@@ -10,3 +10,33 @@
     grid-template-columns: 1fr;
   }
 }
+
+.statusGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  margin-bottom: 4rem;
+
+  @include mobile {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.statusInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.statusInfoName {
+  font-size: 1rem;
+
+  color: var(--secondaryTextColor);
+}
+
+.statusInfoValue {
+  font-size: 2rem;
+  font-weight: 500;
+}
