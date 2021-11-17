@@ -6,11 +6,9 @@ export default function useWebservices(): ServicePerformanceV1[] {
 
   useEffect(() => {
     getWebservices().then((data) => {
-      setTimeout(() => {
-        setWebservices(data);
-      }, 2000);
+      setWebservices(data);
     });
-  }, [webservices]);
+  }, []);
 
   return webservices;
 }

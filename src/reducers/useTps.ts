@@ -8,7 +8,7 @@ export default function useTps(): TpsPerformanceV1 | null {
     getTps().then((data) => {
       setTps(data);
     });
-  }, [tps]);
+  }, []);
 
   return tps;
 }

@@ -2,7 +2,6 @@ import { FC } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import classNames from "classnames";
 import ReactTooltip from "react-tooltip";
-
 import Home from "./components/routes/Home";
 
 import styles from "./App.module.scss";

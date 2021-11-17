@@ -11,11 +11,13 @@ export default function DarkModeToggle() {
     if (darkMode) {
       root.style.setProperty("--mainBackgroundColor", "#111111");
       root.style.setProperty("--defaultTextColor", "#ffffff");
+      root.style.setProperty("--skeletonColor", "#333333");
 
       localStorage.setItem("darkMode", "true");
     } else {
       root.style.setProperty("--mainBackgroundColor", "#ffffff");
       root.style.setProperty("--defaultTextColor", "#111111");
+      root.style.setProperty("--skeletonColor", "#F3F4F5");
 
       localStorage.setItem("darkMode", "false");
     }

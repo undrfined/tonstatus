@@ -9,7 +9,7 @@ export interface ServicePerformanceV1 {
   last24Hours: DateServicePerformanceMeasurementV1[];
 }
 
-interface DateServicePerformanceMeasurementV1 {
+export interface DateServicePerformanceMeasurementV1 {
   service: string;
   date: string;
   avgResponseTime: number;
@@ -51,6 +51,28 @@ export function api(path: string, params: any = {}): Promise<any> {
   return fetch(`http://localhost/${path}?${new URLSearchParams(params)}`).then(
     (r) => r.json()
   );
+}
+
+export function getWebserviceHourly(
+  service: string,
+  from: Date,
+  to: Date
+): Promise<DateServicePerformanceMeasurementV1[]> {
+  const fromStr = from.toUTCString();
+  const toStr = to.toUTCString();
+
+  return api(`webservice-hourly/${service}?from=${fromStr}&to=${toStr}`);
+}
+
+export function getWebserviceDaily(
+  service: string,
+  from: Date,
+  to: Date
+): Promise<DateServicePerformanceMeasurementV1[]> {
+  const fromStr = from.toUTCString();
+  const toStr = to.toUTCString();
+
+  return api(`webservice-daily/${service}?from=${fromStr}&to=${toStr}`);
 }
 
 export function getWebservices(): Promise<ServicePerformanceV1[]> {

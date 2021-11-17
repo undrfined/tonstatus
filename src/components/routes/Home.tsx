@@ -1,5 +1,6 @@
 import { FC } from "react";
 
+import { Provider } from "use-react-modal";
 import styles from "./Home.module.scss";
 import WebserviceStatusCard from "../WebserviceStatusCard";
 import useWebservices from "../../reducers/useWebservices";
@@ -42,7 +43,9 @@ const Home: FC = () => {
       <div className={styles.home}>
         {webservices.length ? (
           webservices.map((webservice) => (
-            <WebserviceStatusCard performance={webservice} />
+            <Provider background="rgba(0, 0, 0, 0.5) ">
+              <WebserviceStatusCard performance={webservice} />
+            </Provider>
           ))
         ) : (
           <>

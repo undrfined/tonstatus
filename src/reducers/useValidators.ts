@@ -10,7 +10,7 @@ export default function useValidators(): ValidatorsPerformanceV1 | null {
     getValidators().then((data) => {
       setValidators(data);
     });
-  }, [validators]);
+  }, []);
 
   return validators;
 }
