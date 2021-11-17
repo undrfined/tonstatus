@@ -60,6 +60,7 @@
     "max-len": "off",
     "jsx-a11y/no-noninteractive-element-to-interactive-role": "off",
     "react/button-has-type": "off",
-    "react/require-default-props": "off"
+    "react/require-default-props": "off",
+    "no-nested-ternary": "off"
   }
 }

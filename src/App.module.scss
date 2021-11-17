@@ -50,6 +50,14 @@
   color: var(--accentColor);
 }
 
+.logoWarning {
+  color: var(--warningColor);
+}
+
+.logoDanger {
+  color: var(--dangerColor);
+}
+
 .header {
   color: var(--accentColor);
   text-align: center;
@@ -72,6 +80,18 @@
 .headerLoading {
   .headerStatus {
     color: var(--accentColor);
+  }
+}
+
+.headerWarning {
+  .headerStatus {
+    color: var(--warningColor);
+  }
+}
+
+.headerDanger {
+  .headerStatus {
+    color: var(--dangerColor);
   }
 }
 

@@ -17,6 +17,13 @@ export interface DateServicePerformanceMeasurementV1 {
   recordsCount: number;
 }
 
+export interface BlocksMeasurementV1 {
+  blocks1minute: number;
+  blocks5minute: number;
+  blocks15minute: number;
+  date: string;
+}
+
 export interface ValidatorsPerformanceV1 {
   last: ValidatorsMeasurementV1;
   avgTotalValidators: number;
@@ -32,6 +39,29 @@ export interface TpsPerformanceV1 {
   avgTps15Minute: number;
   from: string;
   to: string;
+}
+
+export interface BlocksPerformanceV1 {
+  last: BlocksMeasurementV1;
+  avgBlocks1Minute: number;
+  avgBlocks5Minute: number;
+  avgBlocks15Minute: number;
+  from: string;
+  to: string;
+}
+
+export interface LiteserversPerformanceV1 {
+  last: LiteserversMeasurementV1;
+  from: string;
+  to: string;
+}
+
+export interface LiteserversMeasurementV1 {
+  online: string[];
+  offline: string[];
+  averageResponseTime: number;
+  outOfSync: string[];
+  date: string;
 }
 
 export interface ValidatorsMeasurementV1 {
@@ -85,4 +115,12 @@ export function getValidators(): Promise<ValidatorsPerformanceV1> {
 
 export function getTps(): Promise<TpsPerformanceV1> {
   return api("tps");
+}
+
+export function getBlocks(): Promise<BlocksPerformanceV1> {
+  return api("blocks");
+}
+
+export function getLiteservers(): Promise<LiteserversPerformanceV1> {
+  return api("liteservers");
 }

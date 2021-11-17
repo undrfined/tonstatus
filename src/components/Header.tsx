@@ -6,17 +6,39 @@ export default function Header() {
   const webservices = useWebservices();
 
   const isLoading = webservices.length === 0;
+  const isDanger = !isLoading && webservices.every((p) => !p.up);
+  const isWarning = !isLoading && webservices.some((p) => !p.up);
+
+  let statusText = isLoading ? "Loading..." : "All systems operational";
+  let statusColor = isLoading ? "var(--accentColor)" : "var(--successColor)";
+  let statusTextColor = "white";
+
+  if (isWarning) {
+    statusText = "Something is no ok!";
+    statusColor = "var(--warningColor)";
+    statusTextColor = "black";
+  }
+  if (isDanger) {
+    statusText = "Everything is broken!";
+    statusColor = "var(--dangerColor)";
+  }
 
   return (
     <>
       <div
         className={classNames(
           styles.logo,
-          isLoading ? styles.logoLoading : undefined
+          isLoading ? styles.logoLoading : undefined,
+          isWarning ? styles.logoWarning : undefined,
+          isDanger ? styles.logoDanger : undefined
         )}
       >
         <svg
-          className={classNames(isLoading ? styles.logoLoading : undefined)}
+          className={classNames(
+            isLoading ? styles.logoLoading : undefined,
+            isWarning ? styles.logoWarning : undefined,
+            isDanger ? styles.logoDanger : undefined
+          )}
           width="32"
           height="32"
           viewBox="0 0 32 32"
@@ -41,12 +63,16 @@ export default function Header() {
       <div
         className={classNames(
           styles.header,
-          isLoading ? styles.headerLoading : undefined
+          isLoading ? styles.headerLoading : undefined,
+          isWarning ? styles.headerWarning : undefined,
+          isDanger ? styles.headerDanger : undefined
         )}
       >
         The Open Network{" "}
         <span
-          data-tip={isLoading ? "Loading..." : "All systems operational"}
+          data-background-color={statusColor}
+          data-text-color={statusTextColor}
+          data-tip={statusText}
           className={styles.headerStatus}
         >
           Status

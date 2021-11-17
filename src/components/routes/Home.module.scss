@@ -13,14 +13,19 @@
 
 .statusGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
   padding: 1rem;
   margin-bottom: 4rem;
 
   @include mobile {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
+}
+
+.home + .statusGrid {
+  margin-top: 4rem;
+  margin-bottom: 1rem;
 }
 
 .statusInfo {
@@ -28,6 +33,38 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.liteserversBlock {
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+
+  height: max-content;
+
+  border-radius: 12px;
+
+  background-color: var(--skeletonColor);
+}
+
+.liteserversBlockTitle {
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.liteserversBlockData {
+  display: flex;
+  flex-direction: column;
+}
+
+.liteserversBlockDataItem {
+  padding: .5rem 0;
+  border-bottom: 1px solid var(--borderColor);
+
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 .statusInfoName {
