@@ -7,6 +7,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Inter', sans-serif;
+
+  background-color: var(--mainBackgroundColor);
 }
 
 @keyframes opacity {
@@ -45,6 +47,57 @@ body {
   &:hover {
     color: var(--mainBackgroundColor);
     background-color: var(--defaultTextColor);
+  }
+}
+
+.modal {
+  max-width: 900px;
+  width: 100%;
+  min-width: 900px;
+
+  box-sizing: border-box;
+
+  background-color: var(--mainBackgroundColor);
+  color: var(--defaultTextColor);
+
+  padding: 2rem;
+  border-radius: 20px;
+
+  @include mobile {
+    min-width: 100vw;
+    min-height: 100vh;
+
+    border-radius: 0;
+  }
+
+  .modal-dates {
+    margin-bottom: 2rem;
+
+    display: flex;
+
+    .modal-date {
+      margin-right: 1rem;
+
+      cursor: pointer;
+
+      &.modal-date-active {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .modal-content {
+    overflow: auto;
+
+    height: 100%;
+    width: 100%;
+    min-height: 400px;
+
+    .skeleton {
+      height: 400px;
+
+      border-radius: 12px;
+    }
   }
 }
 
@@ -227,7 +280,7 @@ body {
     top: 0;
     height: 100%;
     width: 150px;
-    background: linear-gradient(to right, currentColor 0%, white 50%, currentColor 100%);
+    background: linear-gradient(to right, currentColor 0%, var(--mainBackgroundColor) 50%, currentColor 100%);
     animation: skeleton 2s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
   }
 }
