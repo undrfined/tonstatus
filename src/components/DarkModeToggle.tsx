@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 
 export default function DarkModeToggle() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem("darkMode") === "true"
+  );
 
   useEffect(() => {
     const root = document.documentElement;
@@ -9,9 +11,13 @@ export default function DarkModeToggle() {
     if (darkMode) {
       root.style.setProperty("--mainBackgroundColor", "#111111");
       root.style.setProperty("--defaultTextColor", "#ffffff");
+
+      localStorage.setItem("darkMode", "true");
     } else {
       root.style.setProperty("--mainBackgroundColor", "#ffffff");
       root.style.setProperty("--defaultTextColor", "#111111");
+
+      localStorage.setItem("darkMode", "false");
     }
   }, [darkMode]);
 
